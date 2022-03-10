@@ -6,27 +6,26 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 15:34:06 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/09 17:56:58 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/10 17:32:11 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
+#include <iostream>
+#include <string>
+#include <stdlib.h>
+#include "Contact.hpp"
+#include <iomanip>
 
 class PhoneBook {
 
 public:
 	PhoneBook(void);
 	~PhoneBook(void);
-	void ADD(char *FirstName, char *LastName, int PhoneNumber
-			, char *DarkestSecret);
-	void SEARCH(char *contact);
-	void EXIT(void);
-
-
+	Contact Contact[8];
+	void 	SEARCH();
 private:
-
-
 };
 
 #endif
