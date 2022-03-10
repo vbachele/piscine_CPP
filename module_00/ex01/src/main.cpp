@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 15:08:08 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/10 17:21:09 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/10 17:54:16 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,24 @@ static std::string	prompt(void)
 
 void	display_contact(PhoneBook book)
 {
-	//int input;
+	int input;
 	book.SEARCH();
+	while (1)
+	{
+		std::cout << "Please enter an index to have all the information"
+					<< std::endl;
+		std::cin >> input;
+		if (std::cin.fail() == true)
+			std::cout << "index out of range" << std::endl;
+		else if (input > 0 && input <= 8)
+		{
+			book.Contact[input].display_contact();
+			return ;
+		}
+		else
+			std::cout << "You didn't put a number" << std::endl;
 
+	}
 }
 
 int main(int argc, char **argv)
