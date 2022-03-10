@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 15:34:50 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/10 17:37:08 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/10 17:43:25 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "iostream"
 #include <stdlib.h>
+#include <iomanip>
 
 class Contact{
 
@@ -26,6 +27,7 @@ public:
 	int 	errors(void);
 	void	display_names(void);
 	void 	display_contact(void);
+	void 	print_string(std::string str);
 
 private:
 	std::string m_LastName;
