@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 15:34:50 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/10 17:43:25 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/11 15:24:15 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 class Contact{
 
 public:
-	Contact();
-	~Contact();
+	Contact(void);
+	~Contact(void);
 	void	add_contact(void);
 	void	ADD(void);
 	int 	errors(void);

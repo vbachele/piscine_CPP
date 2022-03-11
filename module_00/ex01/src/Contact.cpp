@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 15:08:05 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/10 17:42:46 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/11 14:57:41 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Contact::Contact()
 {
-	std::cout << "Constructor created" << std::endl;
+	//std::cout << "Constructor created" << std::endl;
 }
 
 Contact::~Contact()
 {
-	std::cout << "Destructor created" << std::endl;
+	//std::cout << "Destructor created" << std::endl;
 }
 
 // if ctrl_D, exit the program
@@ -31,6 +31,11 @@ int Contact::errors(void)
 	return (0);
 }
 
+/***
+
+ If you enter in SEARCH the right number, it displays the right infos
+
+***/
 void Contact::display_contact(void)
 {
 	std::cout << m_LastName << std::endl;
@@ -51,9 +56,11 @@ void Contact::print_string(std::string str)
 	if (str.length() > 10)
 		str = str.substr(0, 9) + ".";
 	std::cout << str << "|";
-
 }
 
+/***
+ 	If you write SEARCH it displays all the right names
+***/
 void Contact::display_names(void)
 {
 	print_string(this->m_LastName);
