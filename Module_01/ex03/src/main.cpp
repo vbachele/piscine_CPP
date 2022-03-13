@@ -4,21 +4,19 @@
 
 int main(void)
 {
-    /*********************** TEST SET UP THE WEAPON ************************/
+    /*********************** SET UP THE WEAPON ************************/
     Weapon blade = Weapon("Blade");
-    std::string name = blade.getType();
-    std::cout << name << std::endl;
-    /*********************** TEST SET UP THE CHANGE WEAPON'S NAME ************************/
-    blade.setType("Sword");
-    name = blade.getType();
-    std::cout << name << std::endl;
     /*********************** TEST SET UP THE HUMANA ************************/
-    HumanA Vincent = HumanA("Vincent", "Blade");
+    HumanA Vincent = HumanA("Vincent", blade);
+    Vincent.attack();
+    blade.setType("Sword");
     Vincent.attack();
     /*********************** TEST SET UP THE HUMANB ************************/
     HumanB Antoine = HumanB("Antoine");
     Weapon Balais = Weapon("Balais");
-    Antoine.getWeapon(Balais.getType());
+    Antoine.getWeapon(Balais);
+    Antoine.attack();
+    Balais.setType("BROSSE A CHIOTTE");
     Antoine.attack();
     return (0);
 }
