@@ -5,18 +5,22 @@
 int main(void)
 {
     /*********************** SET UP THE WEAPON ************************/
-    Weapon blade = Weapon("Blade");
-    /*********************** TEST SET UP THE HUMANA ************************/
-    HumanA Vincent = HumanA("Vincent", blade);
-    Vincent.attack();
-    blade.setType("Sword");
-    Vincent.attack();
-    /*********************** TEST SET UP THE HUMANB ************************/
-    HumanB Antoine = HumanB("Antoine");
-    Weapon Balais = Weapon("Balais");
-    Antoine.getWeapon(Balais);
-    Antoine.attack();
-    Balais.setType("BROSSE A CHIOTTE");
-    Antoine.attack();
+    {
+        Weapon club = Weapon("crude spiked club");
+        /*********************** TEST SET UP THE HUMANA ************************/
+        HumanA bob = HumanA("Bob", club);
+        bob.attack();
+        club.setType("some other type of club");
+        bob.attack();
+    }
+    {
+        Weapon club = Weapon("crude spiked club");
+        /*********************** TEST SET UP THE HUMANB ************************/
+        HumanB jim = HumanB("jim");
+        jim.getWeapon(club);
+        jim.attack();
+        club.setType("some other type of club");
+        jim.attack();
+    }
     return (0);
 }

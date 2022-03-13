@@ -13,7 +13,7 @@ public:
     void    getWeapon(Weapon &weapon);
 private:
     std::string _name;
-    Weapon      *_weapon;
+    Weapon      *_weapon; // pourquoi c'est mieux d'utiliser un pointeur ici ?
 };
 
 #endif
