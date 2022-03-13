@@ -1,36 +1,32 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 19:37:30 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/12 19:48:44 by vbachele         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Weapon.hpp"
 
+// By default create the weapon whitout a name
 Weapon::Weapon(void)
 {
-	std::cout << "Constructor called" << std::endl;
+    std::cout << "Weapon Constructor called" << std::endl;
+    return ;
+}
+
+// Set a name to the weapon
+Weapon::Weapon(std::string name)
+{
+    this->setType(name);
+    std::cout << "Weapon Constructor called" << std::endl;
 }
 
 Weapon::~Weapon(void)
 {
-	std::cout << "Destructor called" << std::endl;
+    std::cout << "Weapon Destructor called" << std::endl;
 }
 
-std::string getType(void)
+// Get the const name of the weapon thanks to the reference
+const std::string &Weapon::getType(void)
 {
-	std::string type;
-	type = this->_type;
-	return (type);
+    return (this->_type);
 }
 
-void setType(std::string type)
+// Give a new type to the weapon
+void   Weapon::setType(std::string name)
 {
-	std::string type;
-	type = this->_type;
-} 
+    this->_type = name;
+}

@@ -6,18 +6,16 @@
 #    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/09 15:07:13 by vbachele          #+#    #+#              #
-#    Updated: 2022/03/13 21:58:22 by vbachele         ###   ########.fr        #
+#    Updated: 2022/03/13 22:56:42 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = violence
+NAME = Karen
 
 SRC =				\
 	main.cpp	\
-	Weapon.cpp \
-	HumanA.cpp \
-	HumanB.cpp \
+	Karen.cpp \
 	
 OS = $(shell uname -s)
 ifeq ($(OS),Darwin)

@@ -1,16 +1,19 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 19:36:25 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/12 19:36:35 by vbachele         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#ifndef HUMAN_B
+#define HUMAN_B
+#include "iostream"
+#include "Weapon.hpp"
 
-#ifndef HUMANB_H
-# define HUMANB_H
+class HumanB {
+
+public:
+    HumanB();
+    HumanB(std::string name);
+    ~HumanB();
+    void    attack();
+    void    getWeapon(Weapon &weapon);
+private:
+    std::string _name;
+    Weapon      *_weapon; // pourquoi c'est mieux d'utiliser un pointeur ici ?
+};
 
 #endif

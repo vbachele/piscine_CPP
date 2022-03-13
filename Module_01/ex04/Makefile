@@ -6,18 +6,15 @@
 #    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/09 15:07:13 by vbachele          #+#    #+#              #
-#    Updated: 2022/03/13 21:58:22 by vbachele         ###   ########.fr        #
+#    Updated: 2022/03/12 19:33:56 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = violence
+NAME = Sed
 
 SRC =				\
 	main.cpp	\
-	Weapon.cpp \
-	HumanA.cpp \
-	HumanB.cpp \
 	
 OS = $(shell uname -s)
 ifeq ($(OS),Darwin)
