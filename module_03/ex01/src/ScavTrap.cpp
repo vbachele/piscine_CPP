@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 17:18:45 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/20 17:47:14 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/20 17:54:02 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 ScavTrap::ScavTrap()
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default constructor Scavtrap called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string const name) : ClapTrap(name)
@@ -28,15 +28,15 @@ ScavTrap::ScavTrap(std::string const name) : ClapTrap(name)
 	std::cout << "default energy points : " << this->_energyPoints << std::endl;
 }
 
-// ScavTrap &ScavTrap::operator=(ScavTrap const &obj)
-// {
-// 	std::cout << "Copy assignment operator called" << std::endl;
-// 	// this->_name = obj._name;
-// 	// this->_hitPoints = obj._hitPoints;
-// 	// this->_energyPoints = obj._energyPoints;
-// 	// this->_attackDamage = obj._attackDamage;
-// 	// return *this;
-// }
+ScavTrap &ScavTrap::operator=(ScavTrap const &obj)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	this->_name = obj._name;
+	this->_hitPoints = obj._hitPoints;
+	this->_energyPoints = obj._energyPoints;
+	this->_attackDamage = obj._attackDamage;
+	return *this;
+}
 
 ScavTrap::ScavTrap(const ScavTrap &old_obj)
 {

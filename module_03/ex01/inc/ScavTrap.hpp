@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 17:02:36 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/20 17:42:33 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/20 17:53:44 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	ScavTrap();
 	ScavTrap(std::string name);
 	ScavTrap(const ScavTrap &old_obj);
-	//ScavTrap &operator=(ScavTrap const &obj);
+	ScavTrap &operator=(ScavTrap const &obj);
 	~ScavTrap();
 
 	/************* member functions ***************/
