@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/20 15:37:10 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/20 17:41:20 by vbachele         ###   ########.fr       */
+/*   Created: 2022/03/20 17:02:36 by vbachele          #+#    #+#             */
+/*   Updated: 2022/03/20 17:42:33 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_H
-# define CLAPTRAP_H
+#ifndef SCAVTRAP_H
+# define SCAVTRAP_H
 #include "iostream"
+#include "ClapTrap.hpp"
 
-class ClapTrap
+class	ScavTrap : public ClapTrap // means ScavTrap inherit from ClapTrap
 {
 public:
-	ClapTrap();
-	ClapTrap(std::string name);
-	ClapTrap(const ClapTrap &old_obj);
-	ClapTrap &operator=(ClapTrap const &obj);
-	~ClapTrap();
-	void attack(const std::string& target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	
+	/************* canonical form ***************/
+	ScavTrap();
+	ScavTrap(std::string name);
+	ScavTrap(const ScavTrap &old_obj);
+	//ScavTrap &operator=(ScavTrap const &obj);
+	~ScavTrap();
 
-protected:
-	std::string _name;
-	int	_hitPoints;
-	int	_energyPoints;
-	int	_attackDamage;
+	/************* member functions ***************/
+	void guardGate();
+
+private:
+
 };
 
 #endif
