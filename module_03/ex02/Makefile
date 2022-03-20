@@ -6,16 +6,17 @@
 #    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/15 15:41:32 by vbachele          #+#    #+#              #
-#    Updated: 2022/03/20 17:18:32 by vbachele         ###   ########.fr        #
+#    Updated: 2022/03/20 17:48:53 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ClapTrap
+NAME = FragTrap
 
 SRC =				\
 	main.cpp	\
 	ClapTrap.cpp  \
 	ScavTrap.cpp \
+	FragTrap.cpp \
 	
 OS = $(shell uname -s)
 ifeq ($(OS),Darwin)
