@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:09:55 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/16 18:22:13 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/20 15:28:07 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,15 @@
 Fixed::Fixed()
 {
 	this->_value = 0;
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &old_obj)
 {
-	std::cout << "copy constructor called" << std::endl;
 	*this = old_obj;
 }
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 /***
@@ -42,7 +39,6 @@ Fixed::~Fixed(void)
 
 Fixed &Fixed::operator=(Fixed const &obj)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	this->_value = obj._value;
 	return *this;
 }
@@ -55,8 +51,7 @@ Fixed &Fixed::operator=(Fixed const &obj)
 
 Fixed::Fixed(const int value)
 {
-	std::cout << "Int constructor called" << std::endl;
-		this->_value = (value << Fixed::_bits);
+	this->_value = (value << Fixed::_bits);
 }
 
 // transform a float value sent into a fixed point value
@@ -64,7 +59,6 @@ Fixed::Fixed(const int value)
 
 Fixed::Fixed(const float value)
 {
-	std::cout << "float constructor called" << std::endl;
 	this->_value = roundf(value * (1 << Fixed::_bits));
 }
 
@@ -83,10 +77,126 @@ std::ostream &operator<<(std::ostream &out, Fixed const &fixed)
 	return out;
 }
 
-Fixed Fixed::operator+(Fixed const & rhs) const
+/************* rhs means the right member of the tho sent in the function ***************/
+
+Fixed	Fixed::operator+(Fixed const &rhs) const
 {
-	std::cout << "Operation addition called" << std::endl;
-	return Fixed(this->_value + rhs.getRawBits());
+	return Fixed(this->toFloat() + rhs.toFloat());	
+}
+
+Fixed	Fixed::operator-(Fixed const &rhs) const
+{
+	return Fixed(this->toFloat() - rhs.toFloat());	
+}
+
+Fixed	Fixed::operator*(Fixed const &rhs) const
+{
+	return Fixed(this->toFloat() * rhs.toFloat());	
+}
+
+Fixed	Fixed::operator/(Fixed const &rhs) const
+{
+	return Fixed(this->toFloat() / rhs.toFloat());	
+}
+
+// +------------------------------------------+ //
+//   COMPARAISON FUNCTION                       //
+// +------------------------------------------+ //
+
+bool	Fixed::operator<(Fixed const &rhs) const
+{
+	return (this->getRawBits() > rhs.getRawBits());	
+}
+
+bool	Fixed::operator>(Fixed const &rhs) const
+{
+	return (this->getRawBits() < rhs.getRawBits());	
+}
+
+bool	Fixed::operator<=(Fixed const &rhs) const
+{
+	return (this->getRawBits() >= rhs.getRawBits());	
+}
+
+bool	Fixed::operator>=(Fixed const &rhs) const
+{
+	return (this->getRawBits() <= rhs.getRawBits());	
+}
+
+bool	Fixed::operator==(Fixed const &rhs) const
+{
+	return (this->getRawBits() == rhs.getRawBits());	
+}
+
+bool	Fixed::operator!=(Fixed const &rhs) const
+{
+	return (this->getRawBits() != rhs.getRawBits());	
+}
+
+// +------------------------------------------+ //
+//   INCREMENTATION FUNCTION                   //
+// +------------------------------------------+ //
+
+Fixed	&Fixed::operator++()
+{
+	this->_value++;
+	return (*this);	
+}
+
+Fixed	&Fixed::operator--()
+{
+	this->_value--;
+	return (*this);	
+}
+
+Fixed	Fixed::operator++(int) //++i
+{
+	Fixed tmp;
+	
+	tmp = *this;
+	this->_value++;
+	return (tmp);
+}
+
+Fixed	Fixed::operator--(int) //++i
+{
+	Fixed tmp;
+	
+	tmp = *this;
+	this->_value--;
+	return (tmp);
+}
+
+// +------------------------------------------+ //
+//   PUBLIC OVERLOAD		                  //
+// +------------------------------------------+ //
+
+Fixed	&Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+Fixed const	&Fixed::min(Fixed const &a, Fixed const &b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+Fixed	&Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a.getRawBits() > b.getRawBits())	
+		return (a);
+	return (b);
+}
+
+Fixed const	&Fixed::max(Fixed const &a, Fixed const &b)
+{
+	if (a.getRawBits() > b.getRawBits())	
+		return (a);
+	return (b);
 }
 
 // +------------------------------------------+ //
@@ -112,6 +222,5 @@ int		Fixed::getRawBits(void) const
 
 void	Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
 	this->_value = raw;
 }

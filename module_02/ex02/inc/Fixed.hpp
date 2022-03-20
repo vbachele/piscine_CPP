@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:42:37 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/16 18:22:28 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/20 15:12:39 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,37 @@ public:
 	// +------------------------------------------+ //
 	//   operators	                                //
 	// +------------------------------------------+ //
-	Fixed operator+(Fixed const & rhs) const;
-	// Fixed &operator-(Fixed const &obj);
-	// Fixed &operator*(Fixed const &obj);
-	// Fixed &operator/(Fixed const &obj);
-	// Fixed &operator<=(Fixed const &obj);
-	// Fixed &operator<=(Fixed const &obj);
-	// Fixed &operator>(Fixed const &obj);
-	// Fixed &operator<(Fixed const &obj);
-	// Fixed &operator!=(Fixed const &obj);
-	// Fixed &operator==(Fixed const &obj);
+	Fixed operator+(Fixed const &rhs) const;
+	Fixed operator-(Fixed const &rhs) const;
+	Fixed operator/(Fixed const &rhs) const;
+	Fixed operator*(Fixed const &rhs) const;
+	// +------------------------------------------+ //
+	//   comparisons	                                //
+	// +------------------------------------------+ //
+	bool operator<(Fixed const &obj) const;
+	bool operator>(Fixed const &obj) const;
+	bool operator!=(Fixed const &obj) const;
+	bool operator>=(Fixed const &obj) const;
+	bool operator==(Fixed const &obj) const;
+	bool operator<=(Fixed const &obj) const;
 	friend std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
+	
+	// +------------------------------------------+ //
+	//   incrementation	                            //
+	// +------------------------------------------+ //
+	Fixed operator++(int);
+	Fixed operator--(int);
+	Fixed &operator--(void);
+	Fixed &operator++(void);
+	
+	// +------------------------------------------+ //
+	//   public overload	                        //
+	// +------------------------------------------+ //
+	
+	static Fixed		&min(Fixed &a, Fixed &b);
+	static Fixed const	&min(Fixed const &a, Fixed const &b);
+	static Fixed		&max(Fixed &a, Fixed &b);
+	static Fixed const	&max(Fixed const &a, Fixed const &b);
 	// +------------------------------------------+ //
 	//   member functions                           //
 	// +------------------------------------------+ //
