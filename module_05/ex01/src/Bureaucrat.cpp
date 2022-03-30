@@ -6,11 +6,12 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 18:17:15 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/30 15:42:08 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/30 17:51:01 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 // This function allows to check the condition of the mistake
 static void	check_grade(unsigned int grade)
@@ -78,11 +79,21 @@ unsigned int	Bureaucrat::getGrade() const
 	return (this->_grade);
 }
 
-void			Bureaucrat::signForm(Form &form)
+void			Bureaucrat::signForm(Form &form) const
 {
-	if (form._form = 1)
-		std::cout << this->_name << "signed" << form._name << std::endl;
+	try
+	{
+		form.beSigned(*this); // j'envoie les infos de form dans beSigned
+		std::cout << this->getName() << "signed" << form.getName() << std::endl;
+	}
+	catch(std::exception & e)
+	{
+		std::cerr << this->getName() << " couldn't sign ";
+		std::cerr << form.getName() << " because ";
+		std::cerr << e.what() << std::endl;
+	}
 }
+
 // +------------------------------------------+ //
 //   				exception                    //
 // +------------------------------------------+ //

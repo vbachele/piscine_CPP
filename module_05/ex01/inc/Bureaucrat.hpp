@@ -6,15 +6,16 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 18:15:21 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/30 15:31:56 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/30 17:45:17 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_H
 # define BUREAUCRAT_H
 #include "iostream"
+#include "Form.hpp"
 
-class Bureaucrat{
+class Bureaucrat {
 public:
 	Bureaucrat(std::string const &name, unsigned int grade);
 	Bureaucrat(Bureaucrat const &src);
@@ -31,11 +32,11 @@ public:
 		public:
 			virtual const char* what() const throw();
 	};
-	unsigned int	getGrade() const;
-	std::string		getName() const;
+	unsigned int			getGrade() const;
+	virtual std::string		getName() const ;
 	void	IncrementGrade();
 	void	DecrementGrade();
-	void	signForm();
+	void	signForm(Form &form) const;
 
 private:
 	std::string 	_name;
