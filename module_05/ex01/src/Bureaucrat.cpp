@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 18:17:15 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/29 20:23:55 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/03/30 15:42:08 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ std::string		Bureaucrat::getName() const
 	return (this->_name);
 }
 
-void	Bureaucrat::IncrementGrade()
+void			Bureaucrat::IncrementGrade()
 {
 	this->_grade += 1;
 }
 
-void	Bureaucrat::DecrementGrade()
+void			Bureaucrat::DecrementGrade()
 {
 	check_grade(this->getGrade() - 1);
 	this->_grade += -1;
@@ -78,6 +78,11 @@ unsigned int	Bureaucrat::getGrade() const
 	return (this->_grade);
 }
 
+void			Bureaucrat::signForm(Form &form)
+{
+	if (form._form = 1)
+		std::cout << this->_name << "signed" << form._name << std::endl;
+}
 // +------------------------------------------+ //
 //   				exception                    //
 // +------------------------------------------+ //
