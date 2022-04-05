@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 18:15:21 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/30 17:45:17 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/04/03 23:40:47 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define BUREAUCRAT_H
 #include "iostream"
 #include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 public:
@@ -37,10 +39,11 @@ public:
 	void	IncrementGrade();
 	void	DecrementGrade();
 	void	signForm(Form &form) const;
+	void	executeForm(Form const &form);
 
 private:
 	std::string 	_name;
-	unsigned int	_grade;
+	unsigned int			_grade;
 };
 
 std::ostream &operator<<(std::ostream &out,Bureaucrat const &display);

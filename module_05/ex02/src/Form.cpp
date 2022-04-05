@@ -6,7 +6,7 @@
 /*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:41:35 by vbachele          #+#    #+#             */
-/*   Updated: 2022/04/02 19:04:39 by vincent          ###   ########.fr       */
+/*   Updated: 2022/04/03 23:48:57 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,14 @@ bool		Form::getIsSigned() const
 	return (this->_signed);
 }
 
+void		Form::execute(Bureaucrat const &executor) const
+{
+	if (this->_signed == false)
+		throw Form::FormIsNotSignedException();
+	if (executor.getGrade() > this->_execute)
+		throw Form::ExecutionGradeIsTooLowException();
+}
+
 /***************** Exceptions functions **************/
 
 
@@ -102,4 +110,14 @@ char const	*Form::GradeTooHighException::what(void) const throw()
 char const	*Form::GradeTooLowException::what(void) const throw()
 {
 	return ("grade too low");
+}
+
+char const	*Form::FormIsNotSignedException::what(void) const throw()
+{
+	return ("The form is not signed!");
+}
+
+char const	*Form::ExecutionGradeIsTooLowException::what(void) const throw()
+{
+	return ("Your execution Grade is too low!");
 }

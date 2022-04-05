@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:29:18 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/30 18:22:24 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/04/03 23:39:02 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ public:
 	unsigned int					levelSignature() const;
 	unsigned int					levelExecution() const;
 	bool							getIsSigned() const;
+	void							execute(Bureaucrat const & executor) const;
 
 	//   exception                       		   //
 	class GradeTooHighException : public std::exception
@@ -44,7 +45,17 @@ public:
 		public:
 			virtual const char* what() const throw();
 	};
-
+	class FormIsNotSignedException : public std::exception
+	{
+		public:
+			virtual const char* what() const throw();
+	};
+	class ExecutionGradeIsTooLowException : public std::exception
+	{
+		public:
+			virtual const char* what() const throw();
+	};
+	
 private:
 	std::string const 	_name;
 	bool				_signed;

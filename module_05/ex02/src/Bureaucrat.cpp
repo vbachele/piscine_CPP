@@ -6,7 +6,7 @@
 /*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 18:17:15 by vbachele          #+#    #+#             */
-/*   Updated: 2022/04/02 19:17:58 by vincent          ###   ########.fr       */
+/*   Updated: 2022/04/05 17:32:33 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,21 @@ void			Bureaucrat::signForm(Form &form) const
 	catch(std::exception & e)
 	{
 		std::cerr << this->getName() << " couldn't sign the decret: ";
+		std::cerr << form.getName() << " because ";
+		std::cerr << e.what() << std::endl;
+	}
+}
+
+void			Bureaucrat::executeForm(Form const &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->_name << " executed " << form.getName() << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cerr << this->getName() << " couldn't execute ";
 		std::cerr << form.getName() << " because ";
 		std::cerr << e.what() << std::endl;
 	}

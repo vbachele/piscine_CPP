@@ -3,19 +3,24 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
+#    By: vincent <vincent@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/15 15:41:32 by vbachele          #+#    #+#              #
-#    Updated: 2022/03/30 15:29:58 by vbachele         ###   ########.fr        #
+#    Updated: 2022/04/03 23:32:28 by vincent          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Bureaucrat
 
+OUTFILE = outfileShrubbery
+
 SRC =				\
 	main.cpp	\
 	Bureaucrat.cpp  \
 	Form.cpp \
+	ShrubberyCreationForm.cpp \
+	RobotomyRequestForm.cpp \
+	PresidentialPardonForm.cpp \
 
 OS = $(shell uname -s)
 ifeq ($(OS),Darwin)
@@ -53,8 +58,8 @@ clean:
 	@rm -rf $(B)
 
 fclean: clean
-	@echo "$(INFO) deleting $(NAME)"
-	@rm -f $(NAME)
+	@echo "$(INFO) deleting $(NAME) $(OUTFILE)"
+	@rm -f $(NAME) $(OUTFILE)
 
 re: fclean all
 

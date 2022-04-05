@@ -6,62 +6,46 @@
 /*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 18:17:46 by vbachele          #+#    #+#             */
-/*   Updated: 2022/04/02 19:21:00 by vincent          ###   ########.fr       */
+/*   Updated: 2022/04/05 17:33:07 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
-
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
-	Bureaucrat	king("King", 1);
-	Bureaucrat	falseking(king);
-	Bureaucrat	queen("Queen", 2);
-	Bureaucrat	peon("Peon", 149);
-	Form		decretGuerre("guerre", 1, 1);
-
-	std::cout << std::endl;
-
-	std::cout << king << std::endl;
-	std::cout << queen << std::endl;
-	std::cout << peon << std::endl;
-	std::cout << decretGuerre << std::endl;
-
-	try
-	{
-		std::cout << " ---- First test: sign grade > 150 ----" << std::endl;
-		Form		decret2("peace", 155, 10);
-
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	std::cout << std::endl;
+	Bureaucrat				king("King", 1);
+	ShrubberyCreationForm 	outfile("outfile");
+	RobotomyRequestForm		robot("robot");
+	PresidentialPardonForm	fillon("fillon");
 	
-	try
-	{
-		std::cout << " ---- Second test: execution grade > 150 ----" << std::endl;
-		Form		decret2("peace", 10, 155);
-
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	/***************** SHRUBERRY TEST **************/
 	std::cout << std::endl;
-
-	std::cout << " ---- Third test: Level signature of the King == 1"
-		" - Level of signature required == 1 ----" << std::endl;
-	king.signForm(decretGuerre);
+	std::cout << "---------- SHRUBERRY TEST ----------" << std::endl;
+	Bureaucrat	jean_shruberry("jean_shruberry", 138);
+	outfile.beSigned(jean_shruberry);
+	jean_shruberry.executeForm(outfile);
+	jean_shruberry.DecrementGrade();
+	jean_shruberry.executeForm(outfile);
 	std::cout << std::endl;
+	/***************** ROBOTOMY TEST **************/
+	Bureaucrat	kevin_robotomy("kevin_robotomy", 46);
+	robot.beSigned(kevin_robotomy);
+	kevin_robotomy.executeForm(robot);
+	kevin_robotomy.DecrementGrade();
+	kevin_robotomy.executeForm(robot);
+	std::cout << std::endl;
+	/***************** PRESIDENTIAL TEST **************/
+	Bureaucrat	chirac("chirac", 6);
+	fillon.beSigned(chirac);
+	chirac.executeForm(fillon);
+	chirac.DecrementGrade();
+	chirac.executeForm(fillon);
 	
-	std::cout << " ---- Fourth test: Level of signature of the King is now"
-	" == 2 - Level required == 1 ----" << std::endl;
-	king.IncrementGrade();
-	king.signForm(decretGuerre);
 	std::cout << std::endl;
 	
 	return 0;
