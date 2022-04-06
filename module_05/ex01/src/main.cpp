@@ -6,13 +6,12 @@
 /*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 18:17:46 by vbachele          #+#    #+#             */
-/*   Updated: 2022/04/02 19:21:00 by vincent          ###   ########.fr       */
+/*   Updated: 2022/04/03 13:08:10 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
-
 
 int main()
 {
