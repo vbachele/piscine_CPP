@@ -6,7 +6,7 @@
 /*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 22:30:59 by vincent           #+#    #+#             */
-/*   Updated: 2022/04/03 23:29:13 by vincent          ###   ########.fr       */
+/*   Updated: 2022/04/10 20:55:50 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /***************** Canonical form **************/
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("Presidential Pardon Form", 25, 5), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form(target , 25, 5), _target(target)
 {
 	std::cout << "Constructor is called" << std::endl;
 }

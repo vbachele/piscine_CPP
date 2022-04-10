@@ -6,7 +6,7 @@
 /*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:29:18 by vbachele          #+#    #+#             */
-/*   Updated: 2022/04/03 23:39:02 by vincent          ###   ########.fr       */
+/*   Updated: 2022/04/10 15:39:46 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ public:
 	};
 	
 private:
-	std::string const 	_name;
+	std::string 	 	_name;
 	bool				_signed;
 	unsigned int		_required;
 	unsigned int		_execute;

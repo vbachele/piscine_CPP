@@ -6,7 +6,7 @@
 /*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:41:35 by vbachele          #+#    #+#             */
-/*   Updated: 2022/04/03 23:48:57 by vincent          ###   ########.fr       */
+/*   Updated: 2022/04/10 15:47:26 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ std::ostream &operator<<(std::ostream &out, Form const &display)
 
 Form &Form::operator=(Form const &obj)
 {
+	this->_name = obj.getName();
 	std::cout << "Copy assignment operator called" << std::endl;
 	check_grade(obj._required, obj._execute);
 	return *this;
@@ -83,7 +84,7 @@ unsigned int		Form::levelSignature() const
 
 unsigned int		Form::levelExecution() const
 {
-	return (this->_required);
+	return (this->_execute);
 }
 
 bool		Form::getIsSigned() const

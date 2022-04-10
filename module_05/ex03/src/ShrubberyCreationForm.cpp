@@ -6,7 +6,7 @@
 /*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 19:37:24 by vincent           #+#    #+#             */
-/*   Updated: 2022/04/03 13:20:58 by vincent          ###   ########.fr       */
+/*   Updated: 2022/04/10 20:56:15 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 /***************** Canonical form **************/
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("Shruberry", 145, 137), _target(target) // prend un nom et 2 valeurs valeurs
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form(target, 145, 137), _target(target) // prend un nom et 2 valeurs valeurs
 {
+	std::cout << this->_target << std::endl;
 	std::cout << "Constructor is called" << std::endl;
 }
 
@@ -30,9 +31,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << "Destructor is called" << std::endl;
 }
 
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &obj)
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &rhs)
 {
-	Form::operator=(obj); // Aform doit etre un modèle de formulaire sur lesquels on va créer 3 formulaires derrière
+	Form::operator=(rhs); // Aform doit etre un modèle de formulaire sur lesquels on va créer 3 formulaires derrière
 	std::cout << "Copy assignment operator called" << std::endl;
 	return *this;
 }

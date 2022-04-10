@@ -6,7 +6,7 @@
 /*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 13:24:59 by vincent           #+#    #+#             */
-/*   Updated: 2022/04/03 22:25:23 by vincent          ###   ########.fr       */
+/*   Updated: 2022/04/10 20:56:07 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 
 /***************** Canonical form **************/
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("RobotomyRequestForm", 72, 45), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form(target, 72, 45), _target(target)
 {
+	//std::cout << "2nd target " << _target << std::endl;
 	std::cout << "Constructor is called" << std::endl;
 }
 
