@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vincent <vincent@student.42.fr>            +#+  +:+       +#+         #
+#    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/15 15:41:32 by vbachele          #+#    #+#              #
-#    Updated: 2022/04/12 16:43:44 by vincent          ###   ########.fr        #
+#    Updated: 2022/04/17 15:29:30 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = convert
 
 SRC =				\
 	main.cpp	\
-	convertor.cpp \
+	Convertor.cpp \
 
 OS = $(shell uname -s)
 ifeq ($(OS),Darwin)

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convertor.hpp                                      :+:      :+:    :+:   */
+/*   Convertor.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 16:20:16 by vincent           #+#    #+#             */
-/*   Updated: 2022/04/14 22:58:49 by vincent          ###   ########.fr       */
+/*   Updated: 2022/04/17 20:36:05 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONVERTOR_H
-# define CONVERTOR_H
+#ifndef CONVERTOR_HPP
+# define CONVERTOR_HPP
 #include "iostream"
 # include <cstdlib>
 # include <cmath>
@@ -30,19 +30,19 @@ typedef enum e_type
 class Convertor {
 public:
 /***************** Canonical form **************/
-	Convertor(std::string Convertor);
+	Convertor(char const *Convertor);
 	Convertor(Convertor const &src);
-	~Convertor();
+	~Convertor(void);
 	Convertor &operator=(Convertor const &obj);
 /***************** member functions **************/
-	bool		isInt(std::string &convertor);
-	bool		isFloat(std::string &convertor);
-	bool		isDouble(std::string &convertor);
-	void		displayConvertor();
-	void		getConvertor(std::string &convertor);
-	void		setErrors();
+	bool		isInt(char const *convertor);
+	bool		isFloat(char const *convertor);
+	bool		isDouble(char const *convertor);
+	bool		isChar(char const *convertor);
+	void		displayConvertor(void);
+	void		getConvertor(void);
+	void		setErrors(void);
 private:
-	std::string _Convertor;
 	int			_intConvertor;
 	float		_floatConvertor;
 	double		_doubleConvertor;

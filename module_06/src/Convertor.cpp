@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convertor.cpp                                      :+:      :+:    :+:   */
+/*   Convertor.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 16:19:22 by vincent           #+#    #+#             */
-/*   Updated: 2022/04/14 23:10:58 by vincent          ###   ########.fr       */
+/*   Updated: 2022/04/17 20:41:07 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Convertor.hpp"
+# include <cstdlib>
 
 /***************** Canonical form **************/
-Convertor::Convertor(std::string convertor) : _Convertor(convertor)
+Convertor::Convertor(char const *convertor)
 {
-	bool	_intImpossible = false;
-	bool	_charImpossible = false; 
-	bool	_charNonPrintable = false;
+	this->_intImpossible = false;
+	this->_charImpossible = false; 
+	this->_charNonPrintable = false;
 
 	/***************** define the type of the variable **************/
-	if (isInt(convertor) = false && isDouble(convertor) && isFloat(convertor) && isChar(convertor))
-		this->_type == ERROR;
-
-	getConvertor(convertor);
-	setErrors();
-	std::cout << "Constructor is called" << std::endl;
+	if (isInt(convertor) == false && isDouble(convertor) == false && isFloat(convertor) == false 
+		&& isChar(convertor) == false)
+		this->_type = ERROR;
+	getConvertor(); // Here I cast in function of my type
+	setErrors(); // Here i set the errors
+	//std::cout << "Constructor is called" << std::endl;
 }
 Convertor::Convertor(Convertor const &src)
 {
-	std::cout << "Constructor with grade is called" << std::endl;
+	//std::cout << "Constructor with grade is called" << std::endl;
 	*this = src; // copy all the element of src in the current instance
 }
 Convertor::~Convertor()
 {
-	std::cout << "Destructor is called" << std::endl;
+	//std::cout << "Destructor is called" << std::endl;
 }
 Convertor &Convertor::operator=(Convertor const &obj)
 {
@@ -46,7 +47,7 @@ Convertor &Convertor::operator=(Convertor const &obj)
 	this->_intImpossible = obj._intImpossible;
 	this->_charImpossible = obj._charImpossible;
 	this->_charNonPrintable = obj._charNonPrintable;
-	std::cout << "Copy assignment operator called" << std::endl;
+	//std::cout << "Copy assignment operator called" << std::endl;
 	return *this;
 }
 
@@ -54,11 +55,11 @@ Convertor &Convertor::operator=(Convertor const &obj)
 
 
 // This function takes a string as argument and will check if the string is only a int
-bool		Convertor::isInt(std::string &str)
+bool		Convertor::isInt(char const *str)
 {
-	char	*ptr = NULL;
+	char	*endptr = NULL;
 	long	i = strtol(str, &endptr, 10);
-	if (*ptr || i > INT_MAX || i < INT_MIN)
+	if (*endptr || i > INT_MAX || i < INT_MIN)
 		return (false);
 	this->_type = INT;
 	this->_intConvertor = static_cast<int>(i);
@@ -66,10 +67,10 @@ bool		Convertor::isInt(std::string &str)
 }
 
 // This function takes a string as argument and will check if the string is only a double
-bool		Convertor::isDouble(std::string &str)
+bool		Convertor::isDouble(char const *str)
 {
 	char* ptr = NULL;
-	double d:
+	double d;
 	
     d = strtod(str, &ptr);
 	if (*ptr)
@@ -80,33 +81,33 @@ bool		Convertor::isDouble(std::string &str)
 }
 
 // This function takes a string as argument and will check if the string is only a char
-bool		Convertor::isChar(std::string &str)
+bool		Convertor::isChar(char const *str)
 {
-	if (str.length != 1 && str.isChar == false)
+	if (str[1] != 0)
 		return false;
 	this->_type = CHAR;
-	this->_charConvertor = str;
+	this->_charConvertor = str[0];
 	return false;			
 }
 
 // This function takes a string as argument and will check if the string is only a float
-bool		Convertor::isFloat(std::string &str)
+bool		Convertor::isFloat(char const *str)
 {
-	char* ptr = NULL;
-	float f:
+	char *ptr = NULL;
+	float f;
 	
     f = strtof(str, &ptr);
 	if (*ptr != 'f' && (*ptr) + 1 != 0)
 		return false;
 	this->_type = FLOAT;
 	this->_floatConvertor = f;
-    return true;
+	return true;
 }
 
 // check the differents errors to set the flags for the display function
 void		Convertor::setErrors(void)
 {
-	double	d = this->_double;
+	double	d = this->_doubleConvertor;
 
 	if (d < INT_MIN || d > INT_MAX || std::isnan(d) || std::isinf(d))
 	{
@@ -115,42 +116,41 @@ void		Convertor::setErrors(void)
 	}
 	else if (d < CHAR_MIN || d > CHAR_MAX)
 		this->_charImpossible = true;
-	else if (!std::isprint(this->_char))
+	else if (!std::isprint(this->_charConvertor))
 		this->_charNonPrintable = true;
 }
 
 // Convert the string in the different type
 void		Convertor::getConvertor()
 {
-	switch(t_type)
+	switch(_type) // Give the struct enum to cast every case of the enum struct
 	{
 		case CHAR:
-			this->_intConvertor = static_cast << int << (_charConvertor);
-			this->_floatConvertor = static_cast << float << (_charConvertor);
-			this->_doubleConvertor = static_cast << double << (_charConvertor);
+			this->_intConvertor = static_cast < int > (_charConvertor);
+			this->_floatConvertor = static_cast < float > (_charConvertor);
+			this->_doubleConvertor = static_cast < double > (_charConvertor);
 			break ;
 		case INT:
-			this->_charConvertor = static_cast << char << (_intConvertor);
-			this->_floatConvertor = static_cast << float << (_intConvertor);
-			this->_doubleConvertor = static_cast << double << (_intConvertor);
+			this->_charConvertor = static_cast < char > (_intConvertor);
+			this->_floatConvertor = static_cast < float > (_intConvertor);
+			this->_doubleConvertor = static_cast < double > (_intConvertor);
 			break ;
 		case FLOAT:
-			this->_charConvertor = static_cast << char << (_floatConvertor);
-			this->_intConvertor = static_cast << int << (_floatConvertor;
-			this->_doubleConvertor = static_cast << double << (_floatConvertor);
+			this->_charConvertor = static_cast < char > (_floatConvertor);
+			this->_intConvertor = static_cast < int > (_floatConvertor);
+			this->_doubleConvertor = static_cast < double > (_floatConvertor);
 			break ;
 		case DOUBLE:
-			this->_charConvertor = static_cast << char << (_doubleConvertor);
-			this->_intConvertor = static_cast << int << (_doubleConvertor;
-			this->_floatConvertor = static_cast << float << (_doubleConvertor);
+			this->_charConvertor = static_cast < char > (_doubleConvertor);
+			this->_intConvertor = static_cast < int > (_doubleConvertor);
+			this->_floatConvertor = static_cast < float > (_doubleConvertor);
 			break ;
 		default:
 			this->_charImpossible = true;
 			this->_intImpossible = true;
-			this->_float = NAN;
-			this->_double = NAN;
+			this->_floatConvertor = NAN;
+			this->_doubleConvertor = NAN;
 			break ;
-		
 	}
 }
 
@@ -164,14 +164,13 @@ void		Convertor::displayConvertor()
 	else if (this->_charNonPrintable)
 		std::cout << "non displayable" << std::endl;
 	else
-		std::cout << _char << std::endl;
+		std::cout << _charConvertor << std::endl;
 
 	std::cout << "int: ";
 	if (_intImpossible)
 		std::cout << "impossible" << std::endl;
 	else
-		std::cout << _int << std::endl;
-
-	std::cout << "float: " << _float << "f" << std::endl;
-	std::cout << "double: " << _double << std::endl;
+		std::cout << _intConvertor << std::endl;
+	std::cout << "float: " << _floatConvertor << "f" << std::endl;
+	std::cout << "double: " << _doubleConvertor << std::endl;
 }

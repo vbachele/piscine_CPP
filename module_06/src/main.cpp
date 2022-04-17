@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 16:18:32 by vincent           #+#    #+#             */
-/*   Updated: 2022/04/12 17:21:58 by vincent          ###   ########.fr       */
+/*   Updated: 2022/04/17 15:45:19 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main (int argc, char **argv)
 	if (argc == 2)
 	{
 		Convertor test(argv[1]);
-		test.getFloatConvertor();
+		test.displayConvertor();
 	}
 	else
 	{
