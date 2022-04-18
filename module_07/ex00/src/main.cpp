@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 16:18:32 by vincent           #+#    #+#             */
-/*   Updated: 2022/04/18 12:50:34 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/04/18 12:53:00 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ void	min_test(void)
 	std::string string_2 = "Julia";
 	std::string __DARWIN_ALIAS_STARTING_MAC___MAC_10_11_2 = "Julia";
 	/************* test 1: Swap 2 int ***************/
-	std::cout << "---------- TEST MAX ON INT ------------" << std::endl;
+	std::cout << "---------- TEST MIN ON INT ------------" << std::endl;
 	std::cout << "a = " << a << std::endl;
 	std::cout << "b = " << b << std::endl;
 	std::cout << "min = " <<  min(b, a) << std::endl;
-	std::cout << "---------- TEST MAX ON STRING ------------" << std::endl;
+	std::cout << "---------- TEST MIN ON STRING ------------" << std::endl;
 	std::cout << "string_2 = " << string_2 << std::endl;
 	std::cout << "string_1 = " << string_1 << std::endl;
 	std::cout << "min = " <<  min(string_1, string_2) << std::endl;
@@ -80,11 +80,11 @@ void	max_test(void)
 	std::string string_2 = "Julia";
 	std::string __DARWIN_ALIAS_STARTING_MAC___MAC_10_11_2 = "Julia";
 	/************* test 1: Swap 2 int ***************/
-	std::cout << "---------- TEST MIN ON INT ------------" << std::endl;
+	std::cout << "---------- TEST MAX ON INT ------------" << std::endl;
 	std::cout << "a = " << a << std::endl;
 	std::cout << "b = " << b << std::endl;
 	std::cout << "max = " <<  max(b, a) << std::endl;
-	std::cout << "---------- TEST MIN ON STRING ------------" << std::endl;
+	std::cout << "---------- TEST MAX ON STRING ------------" << std::endl;
 	std::cout << "string_2 = " << string_2 << std::endl;
 	std::cout << "string_1 = " << string_1 << std::endl;
 	std::cout << "max = " <<  max(string_1, string_2) << std::endl;
