@@ -6,46 +6,23 @@
 /*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 16:18:32 by vincent           #+#    #+#             */
-/*   Updated: 2022/05/10 09:24:07 by vincent          ###   ########.fr       */
+/*   Updated: 2022/05/10 09:40:12 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "EasyFind.hpp"
+#include "Span.hpp"
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 #include <vector>
-#include <list>
-
-void	display (int i)
-{
-	std::cout << i << std::endl;
-}
-
 
 int main (void)
 {
-	//vect is an array fixed size
-	std::vector <int> vect;
-	
-	/************* VECTOR ***************/
-	srand(time(NULL));
-	vect.push_back(rand());
-	vect.push_back(rand());
-	vect.push_back(rand());
-	vect.push_back(rand());
-	vect.push_back(rand());
-	vect.push_back(10);
-	vect.push_back(rand());
-	vect.push_back(rand());
-	vect.push_back(10);
-	std::for_each(vect.begin(), vect.end(), display);
-	std::cout << std::endl;
-	/**** VECTOR NOT FOUND ****/
-	
-	easyfind(vect, 10);
-	easyfind(vect, -45);
-	easyfind(vect, 150);
-	easyfind(vect, 0);
-	return (0);
+	Span sp = Span(5);
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+	return 0;
 }
