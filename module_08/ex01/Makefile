@@ -6,14 +6,15 @@
 #    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/15 15:41:32 by vbachele          #+#    #+#              #
-#    Updated: 2022/04/24 17:10:30 by vbachele         ###   ########.fr        #
+#    Updated: 2022/05/11 13:47:05 by vbachele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = easy_find
+NAME = Span
 
 SRC =				\
 	main.cpp	\
+	Span.cpp \
 
 OS = $(shell uname -s)
 ifeq ($(OS),Darwin)
