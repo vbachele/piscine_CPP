@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 17:18:45 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/20 18:01:44 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/05/13 18:00:13 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 
 ScavTrap::ScavTrap()
 {
-	std::cout << "Default constructor ScavTrap called" << std::endl;
+	std::cout << "Scavtrap is called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string const name) : ClapTrap(name)
 {
-	std::cout << "constructor ScavTrap called" << std::endl;
+	std::cout << "ScavTrap is called" << std::endl;
 	std::cout << "default hit points : " << this->_hitPoints << std::endl;
 	std::cout << "default attack damage : " << this->_attackDamage << std::endl;
 	std::cout << "default energy points : " << this->_energyPoints << std::endl;
@@ -54,4 +54,18 @@ ScavTrap::~ScavTrap()
 void	ScavTrap::guardGate()
 {
 	std::cout << "ScavTrap is now in keeper mode" << std::endl;
+}
+
+void	ScavTrap::attack(std::string const &target)
+{
+	if (this->_energyPoints == 0 || this->_hitPoints == 0)
+	{
+		std::cout << "[\033[33mSCAV\033[0m] ";
+		std::cout << this->_name << " can't attack." << std::endl;
+		return ;
+	}
+	std::cout << "[\033[33mSCAV\033[0m] ";
+	std::cout << this->_name << " BURNS and deals " << this->_attackDamage << " damage to "
+			<< target << "." << std::endl;
+	this->_energyPoints--;
 }

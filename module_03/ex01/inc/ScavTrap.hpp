@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 17:02:36 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/20 17:53:44 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/05/13 17:20:03 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class	ScavTrap : public ClapTrap // means ScavTrap inherit from ClapTrap
 {
 public:
-	
+
 	/************* canonical form ***************/
 	ScavTrap();
 	ScavTrap(std::string name);
@@ -27,7 +27,8 @@ public:
 	~ScavTrap();
 
 	/************* member functions ***************/
-	void guardGate();
+	void	guardGate();
+	void	attack(std::string const &target);
 
 private:
 

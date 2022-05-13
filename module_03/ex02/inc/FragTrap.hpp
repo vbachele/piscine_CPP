@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 17:49:07 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/20 18:00:25 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/05/13 17:24:07 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ public:
 	FragTrap &operator=(FragTrap const &obj);
 	~FragTrap();
 	/************* member functions ***************/
-	void highFivesGuys(void);
-	
+	void 	highFivesGuys(void);
+	void	attack(std::string const &target);
+
 private:
 
 };

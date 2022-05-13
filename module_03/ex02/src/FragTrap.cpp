@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 17:55:09 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/20 17:59:55 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/05/13 18:00:19 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,18 @@ FragTrap::~FragTrap()
 void	FragTrap::highFivesGuys()
 {
 	std::cout << "HIGH FIVE MATES" << std::endl;
+}
+
+void	FragTrap::attack(std::string const &target)
+{
+	if (this->_energyPoints == 0 || this->_hitPoints == 0)
+	{
+		std::cout << "[\033[33mFRAG\033[0m] ";
+		std::cout << this->_name << " can't attack." << std::endl;
+		return ;
+	}
+	std::cout << "[\033[33mFRAG\033[0m] ";
+	std::cout << this->_name << " EXPLODES and deals " << this->_attackDamage << " damage to "
+			<< target << "." << std::endl;
+	this->_energyPoints--;
 }

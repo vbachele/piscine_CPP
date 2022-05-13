@@ -6,7 +6,7 @@
 /*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 15:35:27 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/20 18:02:38 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/05/13 17:57:56 by vbachele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,24 @@
 
 int main(void)
 {
-	FragTrap vincent("Vincent");
-	vincent.highFivesGuys();
+	ClapTrap antoine("Antoine");
+	FragTrap robin("Robin");
+	ScavTrap vincent("Vincent");
+	std::cout << std::endl;
+
+	antoine.attack("Le 1er gros MECHANT");
+	antoine.takeDamage(20);
+	antoine.beRepaired(20);
+	std::cout << std::endl;
+
+	vincent.attack("LE 2eme MECHANT");
+	antoine.takeDamage(20);
+	antoine.beRepaired(20);
+	std::cout << std::endl;
+
+	robin.attack("Le 3eme gros MECHANT");
+	robin.takeDamage(20);
+	robin.beRepaired(20);
+	std::cout << std::endl;
+	robin.highFivesGuys();
 }
