@@ -14,9 +14,9 @@ public:
 	Dog &operator=(Dog const &obj);
 	virtual ~Dog();
 /************* member functions ***************/
-virtual void makeSound() const;
-virtual void train() const;
-virtual void brainScan() const;
+	virtual void makeSound() const;
+	virtual void train() const;
+	virtual void brainScan() const;
 
 private:
 	Brain *_brain; //allow to create a brain when we create a cat

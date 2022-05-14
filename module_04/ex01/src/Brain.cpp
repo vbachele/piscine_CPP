@@ -3,25 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 13:45:19 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/23 15:22:18 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/05/14 11:45:33 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
+#include "Define.hpp"
 
 /************* canonical form ***************/
 
 Brain::Brain()
 {
-	std::cout << "Brain constructor called" << std::endl;
+	std::cout << BRAIN " " << CONSTRUCTOR << " called" << std::endl;
 }
 
 Brain::Brain(const Brain &old_obj)
 {
-	std::cout << "copy Brain constructor called" << std::endl;
+	std::cout << "copy" << BRAIN " " << CONSTRUCTOR <<  "called" << std::endl;
 	*this = old_obj;
 }
 
@@ -29,7 +30,7 @@ Brain::Brain(const Brain &old_obj)
 
 Brain &Brain::operator=(Brain const &obj)
 {
-	std::cout << "Copy Brain assignment operator called" << std::endl;
+	std::cout << "copy" << BRAIN << "assignment operator called" << std::endl;
 	for (int i = 0; i < 100; i++)
 		this->_ideas[i] = obj._ideas[i];
 	return *this;
@@ -37,7 +38,7 @@ Brain &Brain::operator=(Brain const &obj)
 
 Brain::~Brain()
 {
-	std::cout << "Brain destructor called" << std::endl;
+	std::cout << BRAIN " " << DESTRUCTOR << " called" << std::endl;
 }
 
 /************* member functions ***************/

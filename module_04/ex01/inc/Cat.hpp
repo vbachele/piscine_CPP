@@ -12,9 +12,9 @@ public:
 	Cat &operator=(Cat const &obj);
 	virtual ~Cat();
 /************* member functions ***************/
-virtual void makeSound() const;
-virtual void train() const; // here i call the function train to give him ideas
-virtual void brainScan() const;
+	virtual void makeSound() const;
+	virtual void train() const; // here i call the function train to give him ideas
+	virtual void brainScan() const;
 
 private:
 	Brain *_brain;
