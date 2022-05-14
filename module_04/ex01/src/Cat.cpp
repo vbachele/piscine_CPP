@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:11:57 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/23 15:19:00 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/05/14 12:10:05 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ Cat::Cat()
 
 Cat::Cat(const Cat &old_obj)
 {
-	std::cout << "copy constructor called" << std::endl;
+	std::cout << "copy Cat constructor called" << std::endl;
 	*this = old_obj;
 }
 
 Cat &Cat::operator=(Cat const &obj)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "Copy Cat assignment operator called" << std::endl;
 	this->_brain = new Brain(*(obj._brain));
 	return *this;
 }

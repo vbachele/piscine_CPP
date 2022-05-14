@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:11:59 by vbachele          #+#    #+#             */
-/*   Updated: 2022/03/23 15:18:03 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/05/14 12:10:15 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ Dog::Dog()
 
 Dog::Dog(const Dog &old_obj)
 {
-	std::cout << "copy constructor called" << std::endl;
+	std::cout << "copy Dog constructor called" << std::endl;
 	*this = old_obj;
 }
 
 Dog &Dog::operator=(Dog const &obj)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "Copy Dog assignment operator called" << std::endl;
 	this->_brain = new Brain(*(obj._brain)); // POURQUOI ??
 	return *this;
 }
