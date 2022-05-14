@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+         #
+#    By: vincent <vincent@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/15 15:41:32 by vbachele          #+#    #+#              #
-#    Updated: 2022/03/22 18:10:02 by vbachele         ###   ########.fr        #
+#    Updated: 2022/05/14 11:20:15 by vincent          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC =				\
 	Cat.cpp  \
 	Dog.cpp  \
 	WrongAnimal.cpp  \
+	WrongCat.cpp \
 	
 OS = $(shell uname -s)
 ifeq ($(OS),Darwin)
