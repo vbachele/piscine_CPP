@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 21:43:17 by vbachele          #+#    #+#             */
-/*   Updated: 2022/04/17 22:47:11 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/05/17 19:03:01 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 #include <ctime>
 #include <cstdlib>
 
-class Base {public: virtual ~Base(void) {} }; // No need for .hpp like this
+class Base { 
+	public: virtual ~Base(void) {}
+	};
+
 class A: public Base {};
 class B: public Base {};
 class C: public Base {};

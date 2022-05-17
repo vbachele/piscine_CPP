@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 16:18:32 by vincent           #+#    #+#             */
-/*   Updated: 2022/04/17 21:20:38 by vbachele         ###   ########.fr       */
+/*   Updated: 2022/05/17 19:00:40 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,25 @@ Data	*deserialize(uintptr_t raw)
 
 int main (void)
 {
-	Data *data = new Data;
+	Data 		data;
 	uintptr_t	serial;
-	Data *copy = new Data;
+	Data 		*copy;
 	
-	data->A = 42;
-	data->B = 0;
+	data.A = 42;
+	data.B = 0;
 	
 	std::cout << "------------- HERE IS MY FIRST STRUCT data --------------" << std::endl;
-	std::cout << "address: " << data << std::endl;
+	std::cout << "address: " << &data << std::endl;
 	std::cout << "Struct data: " << std::endl;
-	std::cout << "A: " << data->A << std::endl;
-	std::cout << "B: " << data->B << std::endl;
+	std::cout << "A: " << data.A << std::endl;
+	std::cout << "B: " << data.B << std::endl;
 	std::cout << std::endl;
 	
 	std::cout << "------------- HERE I use the function serialize --------------" << std::endl;
-	serial = serialize(data); //here i transform my adress to a uint_ptr
+	serial = serialize(&data); //here i transform my adress to a uint_ptr
 	
 	std::cout << "serial: " << serial << std::endl;
 	std::cout << std::endl;
-	
 	
 	std::cout << "------------- HERE IS MY SECOND STRUCT copy who takes the address of data --------------" << std::endl;
 	copy = deserialize(serial); // here copy takes the adress of uint ptr
@@ -59,4 +58,5 @@ int main (void)
 	std::cout << "Struct copy: " << std::endl;
 	std::cout << "A: " << copy->A << std::endl;
 	std::cout << "B: " << copy->B << std::endl;
+	
 }

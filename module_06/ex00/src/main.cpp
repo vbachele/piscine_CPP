@@ -3,26 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbachele <vbachele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/12 16:18:32 by vincent           #+#    #+#             */
-/*   Updated: 2022/04/17 15:45:19 by vbachele         ###   ########.fr       */
+/*   Created: 2022/05/17 17:50:27 by vincent           #+#    #+#             */
+/*   Updated: 2022/05/17 17:55:55 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Convertor.hpp"
 
-int main (int argc, char **argv)
+#include <cmath>
+
+int	main(int ac, char **av)
 {
-	(void) argv;
-	if (argc == 2)
+	if (ac == 2)
 	{
-		Convertor test(argv[1]);
-		test.displayConvertor();
+		Conversion	convert(av[1]);
+		convert.display();
 	}
 	else
-	{
-		std::cerr << "Need only one argument" << std::endl;
-	}
+		std::cerr << "error: bad arguments" << std::endl;
 	return (0);
 }
