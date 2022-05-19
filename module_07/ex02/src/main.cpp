@@ -6,7 +6,7 @@
 /*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 15:07:54 by vbachele          #+#    #+#             */
-/*   Updated: 2022/05/19 18:14:27 by vincent          ###   ########.fr       */
+/*   Updated: 2022/05/19 18:25:35 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,6 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
-    delete [] mirror;//
+    delete [] mirror;
     return 0;
 }

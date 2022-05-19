@@ -3,6 +3,15 @@
 # define TEMPLATE_TPP
 #include <iostream>
 
+class OutOfRangeException : public std::exception
+{
+	public : 
+		virtual const char *what() const throw()
+		{
+			return ("index out of range");
+		};
+};
+
 template <typename T>
 class Array 
 {
@@ -54,8 +63,7 @@ public:
 	{
 		if (index < 0 || index >= this->size() || this->_elements == NULL) // handle errors
 		{
-			//std::cout << "WORKS"<< std::endl;
-			throw std::exception();
+			throw OutOfRangeException();
 		}
 		return (this->_elements[index]);
 	}
