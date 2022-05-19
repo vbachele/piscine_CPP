@@ -52,7 +52,7 @@ public:
 	//Allow to access to the right elements of the array
 	T &operator [](unsigned int index)
 	{
-		if (index < 0 || index > this->size() || this->_elements == NULL) // handle errors
+		if (index < 0 || index >= this->size() || this->_elements == NULL) // handle errors
 		{
 			//std::cout << "WORKS"<< std::endl;
 			throw std::exception();
